@@ -92,6 +92,7 @@ input:invalid{
     border-radius: 60% / 10%;
     transform: translateY(-280px);
     transition: .8s ease-in-out;
+    box-shadow: 5px 20px 50px #000;
 }
 
 .singup label{
@@ -124,4 +125,36 @@ input:invalid{
 a{
     text-decoration: none;
     color: #fff;
+}
+
+.forgot {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.forgot a {
+    color: #0c0881;
+    font-size: 0.9em;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.forgot a:hover {
+    color: #ddd;
+}
+
+.toast{
+    position:fixed;
+    top:20px;
+    right:20px;
+    background:#4CAF50;
+    color:#fff;
+    padding:10px 16px;
+    border-radius:6px;
+    opacity:0;
+    transition:.3s;
+}
+
+.toast.show{
+    opacity:1;
 }
