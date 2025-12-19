@@ -15,7 +15,7 @@ import {
     setDoc
 } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
-// ===== FIREBASE CONFIG (CỦA BẠN – ĐÃ OK) =====
+// ===== FIREBASE CONFIG
 const firebaseConfig = {
   apiKey: "AIzaSyDVsJVKOjxuU2hqJi70NsJc_EySqVi3_bE",
   authDomain: "html-dc27b.firebaseapp.com",
@@ -120,3 +120,4 @@ forgotPassword.addEventListener("click", async e => {
         showToast("Không gửi được email ❌: " + err.message);
     }
 });
+
