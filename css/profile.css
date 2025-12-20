@@ -1,0 +1,90 @@
+/* Container cho nút Save duy nhất */
+.save-container {
+    width: 100% !important;
+    display: flex !important;
+    justify-content: center !important;
+    margin-top: 15px !important;
+}
+
+/* Nút SAVE mới - To và đậm chất BaoFilm */
+.btn-save {
+    background: var(--citrine) !important;
+    color: var(--rich-black-fogra-29) !important;
+    border: none !important;
+    padding: 14px 50px !important; /* To hơn để dễ bấm */
+    border-radius: 50px !important;
+    font-weight: 700 !important;
+    letter-spacing: 2px !important;
+    text-transform: uppercase !important;
+    cursor: pointer !important;
+    transition: 0.3s !important;
+    box-shadow: 0 4px 15px rgba(229, 184, 11, 0.3) !important;
+}
+
+.btn-save:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(229, 184, 11, 0.5) !important;
+}
+
+/* Giữ style cho ô input ổn định */
+.edit-input {
+    background: rgba(255, 255, 255, 0.1) !important;
+    border: 1px solid var(--citrine) !important;
+    color: white !important;
+    padding: 10px 15px !important;
+    border-radius: 6px !important;
+    width: 100% !important;
+    margin-top: 8px !important;
+    outline: none !important;
+}
+
+/* Reset lại khung action */
+.details-actions {
+    max-width: none !important;
+    width: 100% !important;
+    flex-direction: column !important;
+    align-items: center !important;
+}
+
+#toast-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 9999;
+}
+
+.toast {
+    position: relative;
+    min-width: 280px;
+    padding: 14px 18px;
+    border-radius: 12px;
+    background: #000;
+    color: #fff;
+    font-size: 15px;
+
+    box-shadow: 0 10px 30px rgba(0,0,0,.4);
+    overflow: hidden;
+
+    animation: slideIn .4s ease;
+}
+
+/* Viền chạy */
+.toast::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 12px;
+    padding: 2px;
+    background: linear-gradient(
+        90deg,
+        #00ffcc,
+        #00ffcc
+    );
+    -webkit-mask:
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+            mask-composite: exclude;
+
+    animation: borderProgress 1s linear forwards;
+}

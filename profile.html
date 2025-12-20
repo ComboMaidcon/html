@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Profile - Filmlane</title>
+  <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./css/toast.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body id="top">
+  <div id="toast-container"></div>
+  
+  <header class="header" data-header>
+    <div class="container">
+
+      <div class="overlay" data-overlay></div>
+
+      <a href="./index.html" class="logo">
+        <img src="./image/baofilm.png" alt="baofilm logo">
+      </a>
+
+      <div class="header-actions">
+
+        <button class="search-btn">
+          <ion-icon name="search-outline"></ion-icon>
+        </button>
+
+        <div class="lang-wrapper">
+          <label for="language">
+            <ion-icon name="globe-outline"></ion-icon>
+          </label>
+
+          <select name="language" id="language">
+            <option value="en">EN</option>
+            <option value="au">AU</option>
+            <option value="ar">AR</option>
+            <option value="tu">TU</option>
+          </select>
+        </div>
+            <div id="userBox" class="user-box">
+              <img id="userAvatar" src="">
+              <span id="userName">User</span>
+
+              <div id="userDropdown" class="user-dropdown">
+                <a href="profile.html">Thông tin tài khoản</a>
+                <button id="btnLogout">Đăng xuất</button>
+              </div>
+            </div>
+      </div>
+
+      <button class="menu-open-btn" data-menu-open-btn>
+        <ion-icon name="reorder-two"></ion-icon>
+      </button>
+
+      <nav class="navbar" data-navbar>
+
+        <div class="navbar-top">
+
+          <a href="./index.html" class="logo">
+            <img src="./image/baofilm.png" alt="baofilmlogo">
+          </a>
+
+          <button class="menu-close-btn" data-menu-close-btn>
+            <ion-icon name="close-outline"></ion-icon>
+          </button>
+
+        </div>
+
+        <ul class="navbar-list">
+
+          <li>
+            <a href="./index.html" class="navbar-link">Home</a>
+          </li>
+
+          <li>
+            <a href="#" class="navbar-link">Movie</a>
+          </li>
+
+          <li>
+            <a href="#" class="navbar-link">Tv Show</a>
+          </li>
+
+          <li>
+            <a href="#" class="navbar-link">Web Series</a>
+          </li>
+
+          <li>
+            <a href="#" class="navbar-link">Pricing</a>
+          </li>
+
+        </ul>
+
+        <ul class="navbar-social-list">
+
+          <li>
+            <a href="#" class="navbar-social-link">
+              <ion-icon name="logo-twitter"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="navbar-social-link">
+              <ion-icon name="logo-facebook"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="navbar-social-link">
+              <ion-icon name="logo-pinterest"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="navbar-social-link">
+              <ion-icon name="logo-instagram"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="navbar-social-link">
+              <ion-icon name="logo-youtube"></ion-icon>
+            </a>
+          </li>
+
+        </ul>
+
+      </nav>
+
+    </div>
+  </header>
+
+  <main>
+    <article>
+      <section class="movie-detail profile-section">
+        <div class="container">
+          
+          <figure class="movie-detail-banner profile-avatar-box">
+            <img src="./image/bguser.jfif" alt="User Avatar" id="profileDisplayImg">
+            <button class="edit-avatar-btn">
+                <ion-icon name="camera-outline"></ion-icon>
+            </button>
+          </figure>
+
+          <div class="movie-detail-content">
+            <p class="detail-subtitle">User Profile</p>
+            <h1 class="h1 detail-title"><strong id="profileDisplayName">John Doe</strong></h1>
+            
+            <div class="meta-wrapper">
+              <div class="badge-wrapper">
+                <div class="badge badge-outline">Member</div>
+                <div class="badge badge-fill">Premium</div>
+              </div>
+            </div>
+
+            <div class="storyline">
+              <p><strong>Username:</strong> <span id="profileUserName">Loading..</span></p>
+              <p><strong>Phone:</strong> <span id="profilePhoneNumber">Loading..</span></p>
+              <p><strong>Email:</strong> <span id="profileEmail">Loading..</span></p>
+              <p><strong>Joined:</strong> <span id="userJoinedDate">Loading...</span></p>
+            </div>
+
+            <div class="details-actions">
+              <div class="share">
+                <ion-icon name="film-outline"></ion-icon>
+                <span>24 Movies Watched</span>
+              </div>
+              <div class="share">
+                <ion-icon name="heart-outline"></ion-icon>
+                <span>12 Favorites</span>
+              </div>
+              <div id="profileActions">
+                <button class="btn btn-primary" id="btnEditProfile">Edit Profile</button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <section class="upcoming">
+        <div class="container">
+          <div class="flex-wrapper">
+            <div class="title-wrapper">
+              <p class="section-subtitle">Your Library</p>
+              <h2 class="h2 section-title">Recently Watched</h2>
+            </div>
+          </div>
+
+          <ul class="movies-list">
+            <li>
+              <div class="movie-card">
+                <a href="#"><figure class="card-banner"><img src="./image/movie-1.png" alt="Movie"></figure></a>
+                <div class="title-wrapper">
+                  <a href="#"><h3 class="card-title">Sonic the Hedgehog 2</h3></a>
+                </div>
+                <div class="card-meta">
+                    <div class="badge badge-outline">HD</div>
+                    <div class="duration"><ion-icon name="time-outline"></ion-icon><time>122 min</time></div>
+                </div>
+              </div>
+            </li>
+            </ul>
+        </div>
+      </section>
+
+    </article>
+  </main>
+
+  <script src="./js/active.js"></script>
+  <script type="module" src="./js/profile.js" ></script>
+  <script type="module" src="./js/firebase.js" ></script>
+  <script type="module" src="./js/toast.js" ></script>
+
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+</html>

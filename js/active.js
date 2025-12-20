@@ -1,4 +1,5 @@
 'use strict';
+
 // ===== NAVBAR TOGGLE =====
 
 const navOpenBtn = document.querySelector("[data-menu-open-btn]");
@@ -34,34 +35,28 @@ window.addEventListener("scroll", function () {
 // ===== GO TO TOP BUTTON =====
 
 const goTopBtn = document.querySelector("[data-go-top]");
-
-window.addEventListener("scroll", function () {
-
-  window.scrollY >= 500 ? goTopBtn.classList.add("active") : goTopBtn.classList.remove("active");
-
-});
-
-
-// ===== REDIRECT TO LOGIN PAGE =====
-document.getElementById("btnLogin").addEventListener("click", () => {
-    window.location.href = "login.html";
-});
-
-const userBox = document.getElementById("userBox");
-const dropdown = document.getElementById("userDropdown");
-const btnLogout = document.getElementById("btnLogout");
-
-if (userBox && dropdown) {
-    userBox.addEventListener("click", (e) => {
-    e.stopPropagation(); // 🔥 chặn document click
-    userDropdown.classList.toggle("show");
-    });
-
-    document.addEventListener("click", () => {
-        userDropdown.classList.remove("show");
+if (goTopBtn) {
+    window.addEventListener("scroll", function () {
+        window.scrollY >= 500 ? goTopBtn.classList.add("active") : goTopBtn.classList.remove("active");
     });
 }
 
 
-// LOGOUT
+// ===== REDIRECT TO LOGIN PAGE =====
+const btnLogin = document.getElementById("btnLogin");
+if (btnLogin) {
+    document.getElementById("btnLogin").addEventListener("click", () => {
+        window.location.href = "login.html";
+    });
+}
+
+const userBox = document.getElementById("userBox");
+const userDropdown = document.getElementById("userDropdown");
+
+if (userBox && userDropdown) {
+    userBox.addEventListener("click", (e) => {
+        e.stopPropagation();
+        userDropdown.classList.toggle("show");
+    });
+}
 

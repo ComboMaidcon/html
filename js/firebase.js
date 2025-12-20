@@ -1,19 +1,21 @@
 // ================= IMPORTS =================
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
-import { updateProfile } from
-"https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
-import {
-    getAuth,
-    createUserWithEmailAndPassword,
-    signInWithEmailAndPassword,
-    sendPasswordResetEmail,
-    onAuthStateChanged,
-    signOut
-} from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
-import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
-import { getStorage } from "firebase/storage";
+import { 
+    getAuth, 
+    createUserWithEmailAndPassword, 
+    signInWithEmailAndPassword, 
+    updateProfile, 
+    signOut, 
+    sendPasswordResetEmail } 
+from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+import { 
+    getFirestore, 
+    doc,
+    setDoc } 
+from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
-export const storage = getStorage(app);
+import { getStorage } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-storage.js";
+import { showToast } from './toast.js';
 
 
 // ================= FIREBASE CONFIG =================
@@ -32,33 +34,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
-
-// ===== TOAST =====
-function showToast(message, duration = 3000) {
-    return new Promise((resolve) => {
-        const container = document.getElementById("toast-container");
-
-        const toast = document.createElement("div");
-        toast.className = "toast";
-        toast.innerText = message;
-
-        container.appendChild(toast);
-
-        // Sau duration → bắt đầu fade out
-        setTimeout(() => {
-            toast.style.opacity = "0";
-            toast.style.transform = "translateX(40px)";
-
-            // Sau animation xong → remove & resolve
-            setTimeout(() => {
-                toast.remove();
-                resolve();
-            }, 1500);
-
-        }, duration);
-    });
-}
-
+const storage = getStorage(app);
 
 
 // ===== PASSWORD CHECK =====
@@ -69,55 +45,53 @@ function isStrongPassword(password) {
 // ===== SIGN UP =====
 const signupForm = document.getElementById("signupForm");
 if (signupForm) {
-signupForm.addEventListener("submit", async e => {
-    e.preventDefault();
+const signupForm = document.getElementById("signupForm");
+if (signupForm) {
+    signupForm.addEventListener("submit", async e => {
+        e.preventDefault();
 
-    const email = signupEmail.value.trim();
-    const password = signupPassword.value;
-    const username = signupUsername.value.trim();
+        const email = document.getElementById("signupEmail").value.trim();
+        const password = document.getElementById("signupPassword").value;
+        const confirmPassword = document.getElementById("signupConfirmPassword").value;
+        const username = document.getElementById("signupUsername").value.trim();
+        const phone = document.getElementById("signupPhone").value.trim(); // Lấy SĐT
 
-    if (!username) {
-        showToast("Vui lòng nhập tên người dùng ❌");
-        return;
-    }
+        if (password !== confirmPassword) {
+            showToast("Mật khẩu không khớp ❌");
+            return;
+        }
+        if (phone.length < 10) {
+            showToast("Số điện thoại không hợp lệ ❌");
+            return;
+        }
 
-    if (!isStrongPassword(password)) {
-        showToast("Mật khẩu phải có ít nhất 6 ký tự, bao gồm chữ hoa, chữ thường và số");
-        return;
-    }
+        try {
+            const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+            const user = userCredential.user;
 
-    try {
-        // 1️⃣ Tạo tài khoản
-        const cred = await createUserWithEmailAndPassword(
-            auth,
-            email,
-            password
-        );
+            await updateProfile(user, { displayName: username });
 
-        // 2️⃣ Lưu displayName vào Firebase Auth
-        await updateProfile(cred.user, {
-            displayName: username
-        });
+            await setDoc(doc(db, "users", user.uid), {
+                username: username,
+                email: email,
+                phoneNumber: phone,
+                createdAt: new Date()
+            });
 
-        // 3️⃣ Lưu thông tin vào Firestore
-        await setDoc(doc(db, "users", cred.user.uid), {
-            username,
-            email,
-            createdAt: new Date()
-        });
+            showToast("Đăng ký thành công 🎉");
+            setTimeout(() => {
+                window.location.href = "index.html";
+            }, 1500);
 
-        await showToast("Đăng ký thành công 🎉", 2000);
-        setTimeout(() => window.location.href = "index.html", 1500);
-
-    } catch (err) {
-        console.error(err.code, err.message);
-
-        if (err.code === "auth/email-already-in-use")
-            showToast("Email đã tồn tại ❌");
-        else
-            showToast("Đăng ký thất bại ❌");
-    }
-});
+        } catch (err) {
+            console.error(err);
+            if (err.code === "auth/email-already-in-use")
+                showToast("Email đã tồn tại ❌");
+            else
+                showToast("Đăng ký thất bại ❌");
+        }
+    });
+}
 }
 
 // ===== LOGIN =====
@@ -144,6 +118,8 @@ loginForm.addEventListener("submit", async e => {
 });
 }
 
+export { auth, db, storage, showToast };
+
 // ===== FORGOT PASSWORD =====
 const forgotPassword = document.getElementById("forgotPassword");
 if (forgotPassword) {
@@ -167,15 +143,23 @@ forgotPassword.addEventListener("click", async e => {
 
 // ===== LOGOUT =====
 const btnLogout = document.getElementById("btnLogout");
-
 if (btnLogout) {
     btnLogout.addEventListener("click", async (e) => {
-    e.stopPropagation();
+        e.preventDefault(); // Ngăn chặn load lại trang tức thì
+        e.stopPropagation(); // Tránh xung đột với các click khác
 
-    await signOut(auth);
+        try {
+            await signOut(auth);
+            console.log("Đăng xuất thành công");
+            // Lệnh quan trọng để quay về trang chủ
+            window.location.href = "index.html"; 
+        } catch (err) {
+            console.error("Lỗi đăng xuất:", err);
+            alert("Không thể đăng xuất, vui lòng thử lại!");
+        }
+    });
 }
-);
-}
+
 
 
 

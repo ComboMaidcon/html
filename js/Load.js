@@ -1,11 +1,7 @@
-
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
-import { getAuth, onAuthStateChanged } 
-from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
-import { getFirestore, doc, getDoc } 
-from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
-/* ===== Firebase config (GIỐNG firebase.js) ===== */
 const firebaseConfig = {
   apiKey: "AIzaSyB9EPdiS8l9pufvZYrW1L-EXE3xCygPUO0",
   authDomain: "bao-film.firebaseapp.com",
@@ -20,49 +16,41 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
 
-/* ===== ELEMENT ===== */
-const btnSignIn = document.getElementById("btnSignIn");
+const btnLogin = document.getElementById("btnLogin"); // Nút đăng nhập/đăng ký
 const userBox = document.getElementById("userBox");
 const userName = document.getElementById("userName");
 const userAvatar = document.getElementById("userAvatar");
 
-/* ===== AUTH STATE ===== */
 onAuthStateChanged(auth, async (user) => {
-    
-    // Ẩn cả 2 ngay từ đầu (chống flicker)
-    btnLogin.classList.add("auth-hidden");
-    userBox.classList.add("auth-hidden");
-    userDropdown.classList.remove("show");
-
     if (user) {
-        /* ========= LẤY THÔNG TIN USER ========= */
-        let name = user.email;
+        // 1. Lấy thông tin cơ bản từ Auth (DisplayName và PhotoURL)
+        // PhotoURL lúc này đã là link từ Firebase Storage nếu bạn đã nhấn Save ở Profile
+        let displayTitle = user.displayName || user.email.split('@')[0];
+        let displayImg = user.photoURL || './image/bguser.jfif';
 
+        // 2. Lấy thêm thông tin từ Firestore để đảm bảo đồng bộ (Tên/SĐT)
         try {
-            const ref = doc(db, "users", user.uid);
-            const snap = await getDoc(ref);
-            if (snap.exists()) {
-                name = snap.data().username;
+            const userRef = doc(db, "users", user.uid);
+            const userSnap = await getDoc(userRef);
+            if (userSnap.exists()) {
+                const data = userSnap.data();
+                displayTitle = data.username || displayTitle;
             }
-        } catch (e) {
-            console.warn("Không lấy được username:", e);
+        } catch (error) {
+            console.warn("Load.js: Không lấy được data Firestore", error);
         }
 
-        /* ========= UPDATE UI ========= */
-        userName.innerText = name;
-        userAvatar.src =
-            "https://ui-avatars.com/api/?name=" + encodeURIComponent(name);
+        // 3. Cập nhật giao diện Header
+        if (userName) userName.innerText = displayTitle;
+        if (userAvatar) userAvatar.src = displayImg;
 
-        btnLogin.classList.add("auth-hidden");
-        userBox.classList.remove("auth-hidden");
+        // Hiện UserBox, ẩn nút Login
+        if (btnLogin) btnLogin.classList.add("auth-hidden");
+        if (userBox) userBox.classList.remove("auth-hidden");
 
     } else {
-        /* ========= CHƯA ĐĂNG NHẬP ========= */
-        btnLogin.classList.remove("auth-hidden");
-        userBox.classList.add("auth-hidden");
+        // Nếu chưa đăng nhập
+        if (btnLogin) btnLogin.classList.remove("auth-hidden");
+        if (userBox) userBox.classList.add("auth-hidden");
     }
-    header.classList.remove("auth-loading");
 });
-
-
-

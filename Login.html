@@ -6,6 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Login</title>
         <link href="css/Login.css" rel="stylesheet" />
+        <link href="css/toast.css" rel="stylesheet" />
     </head>
     <body>
         <div id="toast-container"></div>
@@ -34,13 +35,14 @@
                     <label for="chk">Sign up</label>
                     <input type="text" id="signupUsername" placeholder="User name" required />
                     <input type="email" id="signupEmail" placeholder="Email" required />
+                    <input type="text" id="signupPhone" placeholder="Phone Number" required /> 
                     <input type="password" id="signupPassword" placeholder="Password" required />
                     <input type="password" id="signupConfirmPassword" placeholder="Confirm Password" required />
                     <button class="button" type="submit">Sign up</button>
                 </form>
             </div>
         </div>
-
         <script type="module" src="js/firebase.js"></script>
+        <script type="module" src="js/toast.js"></script>
     </body>
 </html>
