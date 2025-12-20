@@ -1,6 +1,9 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
 import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
 import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+import { 
+    collection, addDoc, onSnapshot, query, where, orderBy, serverTimestamp 
+} from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
 const firebaseConfig = {
   apiKey: "AIzaSyB9EPdiS8l9pufvZYrW1L-EXE3xCygPUO0",
@@ -21,12 +24,13 @@ const userBox = document.getElementById("userBox");
 const userName = document.getElementById("userName");
 const userAvatar = document.getElementById("userAvatar");
 
+
 onAuthStateChanged(auth, async (user) => {
     if (user) {
         // 1. Lấy thông tin cơ bản từ Auth (DisplayName và PhotoURL)
         // PhotoURL lúc này đã là link từ Firebase Storage nếu bạn đã nhấn Save ở Profile
         let displayTitle = user.displayName || user.email.split('@')[0];
-        let displayImg = user.photoURL || './image/bguser.jfif';
+        let displayImg = user.photoURL || './image/bguser.jfif'|| '../image/bguser.jfif';
 
         // 2. Lấy thêm thông tin từ Firestore để đảm bảo đồng bộ (Tên/SĐT)
         try {

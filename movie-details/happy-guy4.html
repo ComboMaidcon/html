@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free Guy 2021 - BaoFilm</title>
+  <link rel="shortcut icon" href="../image/baofilm.png" type="image/svg+xml">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/prenium.css">
+  <style>
+    :root { 
+      --header-height: 100px; 
+      --primary-gold: #ffb400;
+      --bg-dark: #0b0d14;
+    }
+
+    /* Đẩy nội dung xuống dưới Navbar */
+    .video-player-container { 
+      padding-top: calc(var(--header-height) + 20px); 
+      background: radial-gradient(circle at top, #1e2129 0%, var(--bg-dark) 100%);
+      min-height: 100vh;
+      padding-bottom: 60px;
+    }
+
+    .video-title { 
+      color: white; font-size: 38px; font-weight: 800; margin-bottom: 25px;
+    }
+    .video-title strong { color: var(--primary-gold); text-shadow: 0 0 15px rgba(255, 180, 0, 0.3); }
+
+    .main-video-box { 
+      width: 100%; aspect-ratio: 16/9; background: #000; border-radius: 20px; 
+      overflow: hidden; margin-bottom: 50px; border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    }
+
+    .video-player { width: 100%; height: 100%; }
+
+    /* Fix lỗi sao đánh giá */
+    .rating-input { display: flex; gap: 8px; margin-bottom: 15px; cursor: pointer; }
+    .rating-input ion-icon { font-size: 30px; color: #444; transition: 0.2s; }
+    .rating-input ion-icon.active { color: var(--primary-gold); }
+
+    .comment-section { background: #161921; padding: 30px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.05); }
+    .comment-input { width: 100%; height: 100px; background: #0b0d14; color: #fff; padding: 15px; border-radius: 10px; border: 1px solid #2d2d2d; margin-bottom: 15px; resize: none; }
+    
+    .comment-item { 
+      display: flex; gap: 15px; padding: 20px; background: rgba(255,255,255,0.03); 
+      border-radius: 12px; margin-bottom: 15px; border-left: 4px solid var(--primary-gold);
+    }
+    .comment-avatar { width: 45px; height: 45px; border-radius: 50%; object-fit: cover; border: 2px solid var(--primary-gold); }
+    .comment-content strong { color: var(--primary-gold); font-size: 16px; display: block; margin-bottom: 5px; }
+    .comment-content p { color: #ccc; line-height: 1.5; }
+
+    .auth-hidden { display: none !important; }
+  </style>
+</head>
+<body id="top">
+
+  <header class="header" data-header>
+    <div class="container">
+
+      <div class="overlay" data-overlay></div>
+
+      <a href="../index.html" class="logo">
+        <img src="../image/baofilm.png" alt="baofilm logo">
+      </a>
+
+      <div class="header-actions">
+
+        <button class="search-btn">
+          <ion-icon name="search-outline"></ion-icon>
+        </button>
+
+        <div class="lang-wrapper">
+          <label for="language">
+            <ion-icon name="globe-outline"></ion-icon>
+          </label>
+
+          <select name="language" id="language">
+            <option value="en">EN</option>
+            <option value="au">AU</option>
+            <option value="ar">AR</option>
+            <option value="tu">TU</option>
+          </select>
+        </div>
+            <div id="userBox" class="user-box">
+              <img id="userAvatar" src="">
+              <span id="userName">User</span>
+
+              <div id="userDropdown" class="user-dropdown">
+                <a href="../profile.html">Thông tin tài khoản</a>
+                <button id="btnLogout">Đăng xuất</button>
+              </div>
+            </div>
+      </div>
+
+      <button class="menu-open-btn" data-menu-open-btn>
+        <ion-icon name="reorder-two"></ion-icon>
+      </button>
+
+      <nav class="navbar" data-navbar>
+
+        <div class="navbar-top">
+
+          <a href="../index.html" class="logo">
+            <img src="../image/baofilm.png" alt="baofilmlogo">
+          </a>
+
+          <button class="menu-close-btn" data-menu-close-btn>
+            <ion-icon name="close-outline"></ion-icon>
+          </button>
+
+        </div>
+
+        <ul class="navbar-list">
+
+          <li>
+            <a href="../index.html" class="navbar-link">Home</a>
+          </li>
+
+          <li>
+            <a href="#" class="navbar-link">Movie</a>
+          </li>
+
+          <li>
+            <a href="#" class="navbar-link">Tv Show</a>
+          </li>
+
+          <li>
+            <a href="#" class="navbar-link">Web Series</a>
+          </li>
+
+          <li>
+            <a href="#" class="navbar-link">Pricing</a>
+          </li>
+
+        </ul>
+
+        <ul class="navbar-social-list">
+
+          <li>
+            <a href="#" class="navbar-social-link">
+              <ion-icon name="logo-twitter"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="navbar-social-link">
+              <ion-icon name="logo-facebook"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="navbar-social-link">
+              <ion-icon name="logo-pinterest"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="navbar-social-link">
+              <ion-icon name="logo-instagram"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="navbar-social-link">
+              <ion-icon name="logo-youtube"></ion-icon>
+            </a>
+          </li>
+
+        </ul>
+
+      </nav>
+
+    </div>
+  </header>
+
+  <main>
+    <article>
+      <section class="movie-detail" id="movieDetail" style="background-image: url(../image/movie-detail-bg.png);">
+  <div class="container">
+
+    <figure class="movie-detail-banner">
+      <img src="../image/movie-4.png" alt="Free Guy movie poster">
+
+      <button class="play-btn">
+        <ion-icon name="play-circle-outline"></ion-icon>
+      </button>
+    </figure>
+
+    <div class="movie-detail-content">
+
+      <p class="detail-subtitle">New Episodes</p>
+
+      <h1 class="h1 detail-title">
+        Free <strong>Guy</strong>
+      </h1>
+
+      <div class="meta-wrapper">
+
+        <div class="badge-wrapper">
+          <div class="badge badge-fill">PG 13</div>
+          <div class="badge badge-outline">HD</div>
+        </div>
+
+        <div class="ganre-wrapper">
+          <a href="#">Comedy,</a>
+          <a href="#">Action,</a>
+          <a href="#">Adventure,</a>
+          <a href="#">Science Fiction</a>
+        </div>
+
+        <div class="date-time">
+          <div>
+            <ion-icon name="calendar-outline"></ion-icon>
+            <time datetime="2021">2021</time>
+          </div>
+
+          <div>
+            <ion-icon name="time-outline"></ion-icon>
+            <time datetime="PT115M">115 min</time>
+          </div>
+        </div>
+
+      </div>
+
+      <p class="storyline">
+        A bank teller called Guy realizes he is a background character in an open world video game called Free
+        City that will soon go offline.
+      </p>
+
+      <div class="details-actions">
+
+        <button class="share">
+          <ion-icon name="share-social"></ion-icon>
+          <span>Share</span>
+        </button>
+
+        <div class="title-wrapper">
+          <p class="title">Prime Video</p>
+          <p class="text">Streaming Channels</p>
+        </div>
+
+        <button class="btn btn-primary" id="btnWatchNow">
+          <ion-icon name="play"></ion-icon>
+          <span>Watch Now</span>
+        </button>
+
+      </div>
+
+      <a href="../image/movie-4.png" download class="download-btn">
+        <span>Download</span>
+        <ion-icon name="download-outline"></ion-icon>
+      </a>
+
+    </div>
+
+  </div>
+</section>
+
+      <section class="video-player-container" id="videoPlayerSection" style="display: none;">
+        <div class="container">
+          <h1 class="video-title">Free <strong>Guy</strong></h1>
+          <div class="main-video-box">
+            <video controls class="video-player" id="mainMovieVideo">
+              <source src="../video/video.mp4" type="video/mp4">
+            </video>
+          </div>
+
+          <div class="comment-section">
+            <h2 class="h2" style="color: white; margin-bottom: 20px;">Reviews</h2>
+            <form id="commentForm">
+              <div class="rating-input" id="ratingStars">
+                <ion-icon name="star-outline" data-value="1"></ion-icon>
+                <ion-icon name="star-outline" data-value="2"></ion-icon>
+                <ion-icon name="star-outline" data-value="3"></ion-icon>
+                <ion-icon name="star-outline" data-value="4"></ion-icon>
+                <ion-icon name="star-outline" data-value="5"></ion-icon>
+              </div>
+              <textarea id="commentText" class="comment-input" placeholder="Viết cảm nghĩ của bạn..." required></textarea>
+              <button type="submit" class="btn btn-primary">Gửi đánh giá</button>
+            </form>
+            <ul id="commentContainer" class="comment-list" style="list-style: none; padding: 0; margin-top: 30px;"></ul>
+          </div>
+        </div>
+      </section>
+    </article>
+  </main>
+
+  <footer class="footer">
+
+    <div class="footer-top">
+      <div class="container">
+
+        <div class="footer-brand-wrapper">
+
+          <a href="./index.html" class="logo">
+            <img src="../image/baofilm.png" alt="Filmlane logo">
+          </a>
+
+          <ul class="footer-list">
+
+            <li>
+              <a href="./index.html" class="footer-link">Home</a>
+            </li>
+
+            <li>
+              <a href="#" class="footer-link">Movie</a>
+            </li>
+
+            <li>
+              <a href="#" class="footer-link">TV Show</a>
+            </li>
+
+            <li>
+              <a href="#" class="footer-link">Web Series</a>
+            </li>
+
+            <li>
+              <a href="#" class="footer-link">Pricing</a>
+            </li>
+
+          </ul>
+
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="quicklink-wrapper">
+
+          <ul class="quicklink-list">
+
+            <li>
+              <a href="#" class="quicklink-link">Faq</a>
+            </li>
+
+            <li>
+              <a href="#" class="quicklink-link">Help center</a>
+            </li>
+
+            <li>
+              <a href="#" class="quicklink-link">Terms of use</a>
+            </li>
+
+            <li>
+              <a href="#" class="quicklink-link">Privacy</a>
+            </li>
+
+          </ul>
+
+          <ul class="social-list">
+
+            <li>
+              <a href="#" class="social-link">
+                <ion-icon name="logo-facebook"></ion-icon>
+              </a>
+            </li>
+
+            <li>
+              <a href="#" class="social-link">
+                <ion-icon name="logo-twitter"></ion-icon>
+              </a>
+            </li>
+
+            <li>
+              <a href="#" class="social-link">
+                <ion-icon name="logo-pinterest"></ion-icon>
+              </a>
+            </li>
+
+            <li>
+              <a href="#" class="social-link">
+                <ion-icon name="logo-linkedin"></ion-icon>
+              </a>
+            </li>
+
+          </ul>
+
+        </div>
+
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container">
+
+        <p class="copyright">
+          &copy; 2022 <a href="#">codewithsadee</a>. All Rights Reserved
+        </p>
+
+        <img src="../image/footer-bottom-img.png" alt="Online banking companies logo" class="footer-bottom-img">
+
+      </div>
+    </div>
+
+  </footer>
+
+  <script src="../js/active.js"></script>
+  <script type="module" src="../js/Load.js"></script>
+  <script type="module" src="../js/watch.js"></script>
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+</body>
+</html>

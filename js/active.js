@@ -1,4 +1,4 @@
-'use strict';
+
 
 // ===== NAVBAR TOGGLE =====
 
@@ -46,7 +46,7 @@ if (goTopBtn) {
 const btnLogin = document.getElementById("btnLogin");
 if (btnLogin) {
     document.getElementById("btnLogin").addEventListener("click", () => {
-        window.location.href = "login.html";
+        window.location.href = "./login.html";
     });
 }
 
@@ -60,3 +60,79 @@ if (userBox && userDropdown) {
     });
 }
 
+const movieLink = document.querySelector('a[href="#upcoming"]');
+
+if (movieLink) {
+    movieLink.addEventListener("click", function (e) {
+        e.preventDefault(); // Ngăn chặn hành vi mặc định của thẻ a
+        
+        const targetSection = document.getElementById("upcoming");
+        if (targetSection) {
+            targetSection.scrollIntoView({
+                behavior: "smooth", // Hiệu ứng cuộn mượt
+                block: "start"      // Dừng ở đầu section
+            });
+        }
+    });
+}
+
+const movieLink2 = document.querySelector('a[href="#movie"]');
+
+if (movieLink2) {
+    movieLink2.addEventListener("click", function (e) {
+        e.preventDefault();
+        const targetSection = document.getElementById("movie");
+        if (targetSection) {
+            targetSection.scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+            });
+        }
+    });
+}
+
+const movieLink3 = document.querySelector('a[href="#service"]');
+if (movieLink3) {
+    movieLink3.addEventListener("click", function (e) {
+        e.preventDefault();
+        const targetSection = document.getElementById("service");
+        if (targetSection) {
+            targetSection.scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+            });
+        }
+    });
+}
+
+
+// Tìm các phần tử
+const premiumModal = document.getElementById("premiumModal");
+
+// 1. Mở Modal
+const pricingLink = document.getElementById("pricingLink");
+if (pricingLink) {
+    pricingLink.onclick = (e) => {
+    e.preventDefault();
+    premiumModal.classList.add("show");
+    document.body.style.overflow = "hidden"; // Ngăn cuộn trang phía sau
+    };
+}
+
+
+// 2. Đóng khi nhấn dấu X
+const closeModal = document.getElementById("closeModal");
+if (closeModal) { // Thêm dòng này để kiểm tra
+    closeModal.onclick = () => {
+  premiumModal.classList.remove("show");
+  document.body.style.overflow = "auto";
+};
+
+// 3. Đóng khi nhấn ra ngoài khung Modal (vùng mờ)
+premiumModal.addEventListener("click", (e) => {
+  if (e.target === premiumModal) {
+    premiumModal.classList.remove("show");
+    document.body.style.overflow = "auto";
+  }
+})
+};
