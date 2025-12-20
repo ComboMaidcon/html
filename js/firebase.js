@@ -1,4 +1,4 @@
-// ================= IMPORTS =================
+// IMPORTS 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
 import { 
     getAuth, 
@@ -18,7 +18,7 @@ import { getStorage } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-s
 import { showToast } from './toast.js';
 
 
-// ================= FIREBASE CONFIG =================
+//  FIREBASE CONFIG
 const firebaseConfig = {
   apiKey: "AIzaSyB9EPdiS8l9pufvZYrW1L-EXE3xCygPUO0",
   authDomain: "bao-film.firebaseapp.com",
@@ -30,19 +30,19 @@ const firebaseConfig = {
 };
 
 
-// ================= INIT =================
+// INIT 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
 const storage = getStorage(app);
 
 
-// ===== PASSWORD CHECK =====
+// PASSWORD CHECK 
 function isStrongPassword(password) {
     return typeof password === "string" && password.length >= 6;
 }
 
-// ===== SIGN UP =====
+// SIGN UP 
 const signupForm = document.getElementById("signupForm");
 if (signupForm) {
 const signupForm = document.getElementById("signupForm");
@@ -94,7 +94,7 @@ if (signupForm) {
 }
 }
 
-// ===== LOGIN =====
+// LOGIN
 const loginForm = document.getElementById("loginForm");
 if (loginForm) {
 loginForm.addEventListener("submit", async e => {
@@ -120,7 +120,7 @@ loginForm.addEventListener("submit", async e => {
 
 export { auth, db, storage, showToast };
 
-// ===== FORGOT PASSWORD =====
+//FORGOT PASSWORD 
 const forgotPassword = document.getElementById("forgotPassword");
 if (forgotPassword) {
 forgotPassword.addEventListener("click", async e => {
@@ -141,17 +141,15 @@ forgotPassword.addEventListener("click", async e => {
 });
 }
 
-// ===== LOGOUT =====
+// LOGOUT
 const btnLogout = document.getElementById("btnLogout");
 if (btnLogout) {
     btnLogout.addEventListener("click", async (e) => {
-        e.preventDefault(); // Ngăn chặn load lại trang tức thì
-        e.stopPropagation(); // Tránh xung đột với các click khác
-
+        e.preventDefault(); 
+        e.stopPropagation(); 
         try {
             await signOut(auth);
             console.log("Đăng xuất thành công");
-            // Lệnh quan trọng để quay về trang chủ
             window.location.href = "index.html"; 
         } catch (err) {
             console.error("Lỗi đăng xuất:", err);

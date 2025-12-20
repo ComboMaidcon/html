@@ -1,6 +1,4 @@
-
-
-// ===== NAVBAR TOGGLE =====
+// navbar
 
 const navOpenBtn = document.querySelector("[data-menu-open-btn]");
 const navCloseBtn = document.querySelector("[data-menu-close-btn]");
@@ -21,7 +19,7 @@ for (let i = 0; i < navElemArr.length; i++) {
 
 }
 
-// ===== HEADER ACTIVE =====
+//HEADER ACTIVE 
 
 const header = document.querySelector("[data-header]");
 
@@ -32,7 +30,7 @@ window.addEventListener("scroll", function () {
 });
 
 
-// ===== GO TO TOP BUTTON =====
+//GO TO TOP BUTTON
 
 const goTopBtn = document.querySelector("[data-go-top]");
 if (goTopBtn) {
@@ -42,7 +40,7 @@ if (goTopBtn) {
 }
 
 
-// ===== REDIRECT TO LOGIN PAGE =====
+// REDIRECT TO LOGIN PAGE 
 const btnLogin = document.getElementById("btnLogin");
 if (btnLogin) {
     document.getElementById("btnLogin").addEventListener("click", () => {
@@ -64,13 +62,13 @@ const movieLink = document.querySelector('a[href="#upcoming"]');
 
 if (movieLink) {
     movieLink.addEventListener("click", function (e) {
-        e.preventDefault(); // Ngăn chặn hành vi mặc định của thẻ a
+        e.preventDefault(); 
         
         const targetSection = document.getElementById("upcoming");
         if (targetSection) {
             targetSection.scrollIntoView({
-                behavior: "smooth", // Hiệu ứng cuộn mượt
-                block: "start"      // Dừng ở đầu section
+                behavior: "smooth",
+                block: "start" 
             });
         }
     });
@@ -109,26 +107,23 @@ if (movieLink3) {
 // Tìm các phần tử
 const premiumModal = document.getElementById("premiumModal");
 
-// 1. Mở Modal
 const pricingLink = document.getElementById("pricingLink");
 if (pricingLink) {
     pricingLink.onclick = (e) => {
     e.preventDefault();
     premiumModal.classList.add("show");
-    document.body.style.overflow = "hidden"; // Ngăn cuộn trang phía sau
+    document.body.style.overflow = "hidden"; 
     };
 }
 
 
-// 2. Đóng khi nhấn dấu X
 const closeModal = document.getElementById("closeModal");
-if (closeModal) { // Thêm dòng này để kiểm tra
+if (closeModal) {
     closeModal.onclick = () => {
   premiumModal.classList.remove("show");
   document.body.style.overflow = "auto";
 };
 
-// 3. Đóng khi nhấn ra ngoài khung Modal (vùng mờ)
 premiumModal.addEventListener("click", (e) => {
   if (e.target === premiumModal) {
     premiumModal.classList.remove("show");

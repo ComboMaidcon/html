@@ -3,7 +3,6 @@ export function showToast(message, duration = 3000) {
     return new Promise((resolve) => {
         let container = document.getElementById("toast-container");
         
-        // Tự động tạo container nếu trong HTML chưa có
         if (!container) {
             container = document.createElement("div");
             container.id = "toast-container";
@@ -11,7 +10,7 @@ export function showToast(message, duration = 3000) {
         }
 
         const toast = document.createElement("div");
-        toast.className = "toast show"; // Thêm class show để kích hoạt CSS
+        toast.className = "toast show"; 
         toast.innerText = message;
 
         container.appendChild(toast);
@@ -23,7 +22,7 @@ export function showToast(message, duration = 3000) {
             setTimeout(() => {
                 toast.remove();
                 resolve();
-            }, 1000); // Đợi hiệu ứng tắt rồi mới xóa hẳn
+            }, 1000);
         }, duration);
     });
 }

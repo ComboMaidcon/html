@@ -1,11 +1,7 @@
 
 
 :root {
-
-  /**
-   * colors
-   */
-
+  /* colour */
   --rich-black-fogra-29: hsl(225, 25%, 9%);
   --rich-black-fogra-39: hsl(170, 21%, 5%);
   --raisin-black: hsl(228, 13%, 15%);
@@ -21,9 +17,7 @@
   --black: hsl(0, 0%, 0%);
   --jet: hsl(0, 0%, 20%);
 
-  /**
-   * typography
-   */
+  /*typography*/
 
   --ff-poppins: 'Poppins', sans-serif;
 
@@ -43,28 +37,18 @@
   --fw-500: 500;
   --fw-700: 700;
 
-  /**
-   * transition
-   */
+  /* transition*/
 
   --transition-1: 0.15s ease;
   --transition-2: 0.25s ease-in;
 
-  /**
-   * spacing
-   */
+  /*spacing*/
 
   --section-padding: 100px;
 
 }
 
-
-
-
-
-/*-----------------------------------*\
- * #RESET
-\*-----------------------------------*/
+/*Reset*/
 
 *, *::before, *::after {
   margin: 0;
@@ -107,19 +91,10 @@ body { background: var(--eerie-black); }
 
 body.active { overflow: hidden; }
 
-
-
-
-
-/*-----------------------------------*\
- * #REUSED STYLE
-\*-----------------------------------*/
-
+/* reused style */
 .container { padding-inline: 15px; }
 
-/**
- * TITLES & SUBTITLES
- */
+/* TITLES & SUBTITLES*/
 
 .h1,
 .h2,
@@ -146,9 +121,7 @@ body.active { overflow: hidden; }
 
 .section-title { text-align: center; }
 
-/**
- * BADGE
- */
+/*BADGE*/
 
 .badge {
   color: var(--white);
@@ -165,9 +138,26 @@ body.active { overflow: hidden; }
 
 .badge-outline { border-color: var(--white); }
 
-/**
- * MOVIE META
- */
+@media screen and (max-width: 768px) {
+  .profile-section .meta-wrapper,
+  .movie-detail .meta-wrapper {
+    gap: 12px 20px;
+    margin-bottom: 25px;
+  }
+
+  .profile-section .badge-wrapper,
+  .movie-detail .badge-wrapper {
+    gap: 10px;
+  }
+
+  .profile-section .badge,
+  .movie-detail .badge {
+    padding: 5px 15px;
+    font-size: 12px;
+  }
+}
+  
+/*MOVIE META*/
 
 .meta-wrapper {
   display: flex;
@@ -212,9 +202,7 @@ body.active { overflow: hidden; }
   color: var(--citrine);
 }
 
-/**
- * BUTTONS
- */
+/*BUTTONS*/
 
 .btn {
   color: var(--white);
@@ -240,9 +228,7 @@ body.active { overflow: hidden; }
   color: var(--xiketic);
 }
 
-/**
- * MOVIE CARD
- */
+/*MOVIE CARD*/
 
 .movies-list {
   display: grid;
@@ -331,9 +317,7 @@ body.active { overflow: hidden; }
   color: var(--citrine);
 }
 
-/**
- * CUSTOM SLIDER & SCROLLBAR
- */
+/*CUSTOM SLIDER & SCROLLBAR*/
 
 .movies-list.has-scrollbar {
   display: flex;
@@ -359,13 +343,7 @@ body.active { overflow: hidden; }
               inset 0 -1px 0 var(--black);
 }
 
-
-
-
-
-/*-----------------------------------*\
- * #HEADER
-\*-----------------------------------*/
+/*header*/
 
 .header {
   position: fixed;
@@ -477,13 +455,7 @@ body.active { overflow: hidden; }
   pointer-events: all;
 }
 
-
-
-
-
-/*-----------------------------------*\
- * #HERO
-\*-----------------------------------*/
+/*hero*/
 
 .hero {
   background: url("../image/hero-bg.jpg") no-repeat;
@@ -511,13 +483,7 @@ body.active { overflow: hidden; }
 
 .hero-title > strong { color: var(--citrine); }
 
-
-
-
-
-/*-----------------------------------*\
- * #UPCOMING
-\*-----------------------------------*/
+/*upcoming*/
 
 .upcoming {
   background: url("../image/upcoming-bg.png") no-repeat;
@@ -555,13 +521,7 @@ body.active { overflow: hidden; }
   scroll-snap-align: start;
 }
 
-
-
-
-
-/*-----------------------------------*\
- * #SERVICE
-\*-----------------------------------*/
+/*service*/
 
 .service {
   background: url("../image/service-bg.jpg") no-repeat;
@@ -660,13 +620,7 @@ body.active { overflow: hidden; }
 
 .service-card .card-title { margin-bottom: 10px; }
 
-
-
-
-
-/*-----------------------------------*\
- * #TOP RATED
-\*-----------------------------------*/
+/*toprated*/
 
 .top-rated {
   background: url("../image/top-rated-bg.jpg") no-repeat;
@@ -714,13 +668,7 @@ body.active { overflow: hidden; }
 
 .top-rated .filter-btn:focus::after { right: 0; }
 
-
-
-
-
-/*-----------------------------------*\
- * #TV SEREIS
-\*-----------------------------------*/
+/*tvseries*/
 
 .tv-series {
   background: url("../image/tv-series-bg.jpg") no-repeat;
@@ -731,13 +679,7 @@ body.active { overflow: hidden; }
 
 .tv-series .section-title { margin-bottom: 50px; }
 
-
-
-
-
-/*-----------------------------------*\
- * #CTA
-\*-----------------------------------*/
+/*cta*/
 
 .cta {
   background: url("../image/cta-bg.jpg") no-repeat;
@@ -792,13 +734,7 @@ body.active { overflow: hidden; }
   color: var(--eerie-black);
 }
 
-
-
-
-
-/*-----------------------------------*\
- * #FOOTER
-\*-----------------------------------*/
+/*footer*/
 
 .footer-top {
   background: url("../image/footer-bg.jpg") no-repeat;
@@ -889,14 +825,7 @@ body.active { overflow: hidden; }
   margin-inline: auto;
 }
 
-
-
-
-
-/*-----------------------------------*\
- * #GO TO TOP
-\*-----------------------------------*/
-
+/*go top */
 .go-top {
   position: fixed;
   bottom: 20px;
@@ -920,16 +849,10 @@ body.active { overflow: hidden; }
   visibility: visible;
 }
 
-
-
-
-
-/*-----------------------------------*\
- * #MOVIE DETAIL 
-\*-----------------------------------*/
+/*movie-detail*/
 
 .movie-detail {
-  background: url("../image/userbg.jpg") no-repeat;
+  background: no-repeat;
   background-size: cover;
   background-position: center;
   padding-top: 160px;
@@ -1052,71 +975,29 @@ body.active { overflow: hidden; }
 
 
 
-/*-----------------------------------*\
- * #MEDIA QUERIES
-\*-----------------------------------*/
-
-/**
- * responsive for large than 550px screen
- */
+/*responsive*/
 
 @media (min-width: 550px) {
 
-  /**
-   * CUSTOM PROPERTY
-   */
-
   :root {
-
-    /**
-     * typography
-     */
-
     --fs-1: 42px;
-
   }
-
-
-
-  /**
-   * REUSED STYLE
-   */
 
   .container {
     max-width: 540px;
     margin-inline: auto;
   }
 
-  /* MOVIE CARD */
-
   .movies-list {
     grid-template-columns: 1fr 1fr;
     gap: 60px 30px;
   }
 
-
-
-  /**
-   * HERO
-   */
-
   .hero { min-height: unset; }
 
   .hero-content { margin-top: 20px; }
 
-
-
-  /**
-   * UPCOMING
-   */
-
   .upcoming .movies-list > li { min-width: calc(50% - 15px); }
-
-
-
-  /**
-   * SERVICE
-   */
 
   .service-list > li:first-child { padding-bottom: 30px; }
 
@@ -1130,56 +1011,19 @@ body.active { overflow: hidden; }
 
   .service-card .card-content { width: calc(100% - 115px); }
 
-
-
-  /**
-   * MOVIE DETAIL
-   */
-
   .detail-subtitle { --fs-5: 22px; }
 
   .detail-title { --fs-1: 46px; }
 
 }
 
-
-
-
-
-/**
- * responsive for large than 768px screen
- */
-
 @media (min-width: 768px) {
 
-  /**
-   * CUSTOM PROPERTY
-   */
-
   :root {
-
-    /**
-     * typography
-     */
-
     --fs-2: 36px;
-
   }
 
-
-
-  /**
-   * REUSED STYLE
-   */
-
   .container { max-width: 720px; }
-
-
-
-  /**
-   * HEADER
-   */   
-
 
   .header .container { gap: 30px }
 
@@ -1228,19 +1072,7 @@ body.active { overflow: hidden; }
 
   .lang-wrapper option { color: var(--black); }
 
-
-
-  /**
-   * HERO
-   */
-
   .hero-content { margin-top: 90px; }
-
-
-
-  /**
-   * SERVICE
-   */
 
   .service-btn {
     right: -20px;
@@ -1248,12 +1080,6 @@ body.active { overflow: hidden; }
   }  
 
   .service-content { padding-inline: 40px; }
-
-
-
-  /**
-   * CTA
-   */
 
   .cta-form {
     position: relative;
@@ -1269,13 +1095,6 @@ body.active { overflow: hidden; }
     right: 2px;
     bottom: 2px;
   }
-
-
-
-
-  /**
-   * FOOTER
-   */
 
   .footer-brand-wrapper .logo { margin: 0; }
 
@@ -1293,43 +1112,17 @@ body.active { overflow: hidden; }
 
   .footer-bottom-img { margin-inline: 0; }
 
-
-
-  /**
-   * MOVIE DETAIL
-   */
-
   .detail-subtitle { --fs-5: 26px; }
 
   .detail-title { --fs-1: 50px; }
 
 }
 
-
-
-
-
-/**
- * responsive for large than 992px screen
- */
-
 @media (min-width: 992px) {
-
-  /**
-   * REUSED STYLE
-   */
-
+  
   .container { max-width: 960px; }
 
-  /* MOVIE CARD */
-
   .movies-list { grid-template-columns: repeat(3, 1fr); }
-
-
-
-  /**
-   * HEADER
-   */
 
   .header.active { padding-block: 5px; }
 
@@ -1364,12 +1157,6 @@ body.active { overflow: hidden; }
 
   .overlay { display: none; }
 
-
-
-  /**
-   * HERO
-   */
-
   .hero { background-position: right; }
 
   .hero .container { width: 950px; }
@@ -1378,12 +1165,6 @@ body.active { overflow: hidden; }
     margin-top: 100px;
     max-width: 600px;
   }
-
-
-
-  /**
-   * UPCOMING
-   */
 
   .upcoming .flex-wrapper {
     display: flex;
@@ -1397,11 +1178,6 @@ body.active { overflow: hidden; }
 
   .upcoming .movies-list > li { min-width: calc(33.33% - 20px); }
 
-
-
-  /**
-   * SERVICE
-   */
 
   .service .container {
     display: flex;
@@ -1418,12 +1194,6 @@ body.active { overflow: hidden; }
   .service-banner { margin-bottom: 0; }
 
   .service-btn { right: 111px; }
-
-
-
-  /**
-   * CTA
-   */
 
   .cta { text-align: left; }
 
@@ -1443,12 +1213,6 @@ body.active { overflow: hidden; }
     max-width: unset;
     width: 100%;
   }
-
-
-
-  /**
-   * MOVIE DETAIL
-   */
 
   .movie-detail { padding-bottom: 200px; }
 
@@ -1470,25 +1234,9 @@ body.active { overflow: hidden; }
 
 }
 
-
-
-
-
-/**
- * responsive for large than 1200px screen
- */
-
 @media (min-width: 1200px) {
 
-  /**
-   * CUSTOM PROPERTY
-   */
-
   :root {
-
-    /**
-     * typography
-     */
 
     --fs-1: 60px;
     --fs-4: 26px;
@@ -1496,22 +1244,9 @@ body.active { overflow: hidden; }
   }
 
 
-
-  /**
-   * REUSED STYLE
-   */
-
   .container { max-width: 1320px; }
 
-  /* MOVIE CARD */
-
   .movies-list { grid-template-columns: repeat(4, 1fr); }
-
-
-
-  /**
-   * HEADER
-   */
 
   .navbar { margin-inline: auto; }
 
@@ -1522,27 +1257,9 @@ body.active { overflow: hidden; }
     letter-spacing: 1px;
   }
 
-
-
-  /**
-   * HERO
-   */
-
   .hero .container { width: 1320px; }
 
-
-
-  /**
-   * UPCOMING
-   */
-
   .upcoming .movies-list > li { min-width: calc(25% - 22.5px); }
-
-
-
-  /**
-   * SERVICE
-   */
 
   .service-content { width: calc(100% - 700px); }
 
@@ -1551,19 +1268,7 @@ body.active { overflow: hidden; }
   .service-list,
   .service-title { max-width: 480px; }
 
-
-
-  /**
-   * CTA
-   */
-
   .cta .container { max-width: 1150px; }
-
-
-
-  /**
-   * MOVIE DETAIL
-   */
 
   .movie-detail { padding-bottom: var(--section-padding); }
 
@@ -1587,12 +1292,9 @@ body.active { overflow: hidden; }
 
 }
 
-/*-----------------------------------*\
- * #USER AUTH (Avatar & Dropdown)
-\*-----------------------------------*/
-
+/* user */
 .user-box {
-    position: relative;       /* neo dropdown */
+    position: relative; 
     display: flex;
     align-items: center;
     gap: 8px;
@@ -1651,9 +1353,7 @@ body.active { overflow: hidden; }
     background: var(--gunmetal-1);
 }
 
-/*-----------------------------------*\
- * #AUTH UTILITIES
-\*-----------------------------------*/
+/* auth utilities */
 
 .auth-hidden {
   display: none !important;
@@ -1662,12 +1362,7 @@ body.active { overflow: hidden; }
 .auth-loading {
   visibility: hidden;
 }
-
-
-
-/*-----------------------------------*\
- * #PROFILE PAGE CUSTOMS
-\*-----------------------------------*/
+/* profile */
 
 .profile-section {
   padding-top: 120px;
@@ -1677,7 +1372,7 @@ body.active { overflow: hidden; }
 .profile-avatar-box {
   position: relative;
   border: 4px solid var(--citrine);
-  border-radius: 50%; /* Làm ảnh đại diện tròn nếu muốn */
+  border-radius: 50%;
   width: 250px;
   height: 250px;
   overflow: hidden;
@@ -1687,6 +1382,22 @@ body.active { overflow: hidden; }
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+@media screen and (max-width: 768px){
+  .profile-avatar-box {
+  position: relative;
+  border: 4px solid var(--citrine);
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  overflow: hidden;
+}
+
+.profile-avatar-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 }
 
 .edit-avatar-btn {
@@ -1717,7 +1428,18 @@ body.active { overflow: hidden; }
   margin-right: 10px;
 }
 
-/* Responsive cho Profile */
+.header-actions #btnLogin {
+  display: none;
+}
+
+
+@media screen and (max-width: 768px) {
+  .header-actions #btnLogin {
+    display: block;
+  }
+}
+
+
 @media (max-width: 992px) {
   .profile-section .container {
     flex-direction: column;
@@ -1726,5 +1448,156 @@ body.active { overflow: hidden; }
   
   .profile-section .details-actions {
     margin-inline: auto;
+  }
+}
+
+#upcoming {
+    scroll-margin-top: 100px; 
+}
+
+
+.auth-hidden {
+  display: none !important;
+}
+
+.navbar-signin-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  margin: 10px 0;
+}
+
+.navbar-signin-btn ion-icon {
+  font-size: 20px;
+}
+
+.navbar-user-info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 15px 0;
+}
+
+.navbar-user-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: var(--white);
+  padding: 10px;
+  border-radius: 8px;
+  transition: 0.3s;
+}
+
+.navbar-user-link:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.navbar-user-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--citrine);
+}
+
+.navbar-user-link span {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.navbar-logout-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  background: rgba(255, 59, 48, 0.1);
+  border: 1px solid rgba(255, 59, 48, 0.3);
+  border-radius: 8px;
+  color: #ff3b30;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+  width: 100%;
+  justify-content: center;
+}
+
+.navbar-logout-btn:hover {
+  background: rgba(255, 59, 48, 0.2);
+  border-color: #ff3b30;
+}
+
+.navbar-logout-btn ion-icon {
+  font-size: 18px;
+}
+
+/* RESPONSIVE CHO DESKTOP */
+@media screen and (min-width: 1024px) {
+  .navbar-auth {
+    margin-left: auto;
+  }
+
+  .navbar-user-info {
+    flex-direction: row;
+    align-items: center;
+    padding: 0;
+  }
+
+  .navbar-user-link {
+    padding: 8px 12px;
+  }
+
+  .navbar-logout-btn {
+    width: auto;
+    padding: 8px 16px;
+  }
+}
+
+/* RESPONSIVE CHO TABLET */
+@media screen and (max-width: 768px) {
+  .navbar-signin-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .navbar-user-avatar {
+    width: 35px;
+    height: 35px;
+  }
+
+  .navbar-user-link span {
+    font-size: 15px;
+  }
+}
+
+/* RESPONSIVE CHO MOBILE */
+@media screen and (max-width: 600px) {
+  .navbar-signin-btn {
+    padding: 12px 20px;
+    font-size: 15px;
+  }
+
+  .navbar-user-info {
+    padding: 10px 0;
+  }
+
+  .navbar-user-link {
+    padding: 12px;
+  }
+
+  .navbar-user-avatar {
+    width: 45px;
+    height: 45px;
+  }
+
+  .navbar-user-link span {
+    font-size: 16px;
+  }
+
+  .navbar-logout-btn {
+    padding: 12px;
+    font-size: 15px;
   }
 }

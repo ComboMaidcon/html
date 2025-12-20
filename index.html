@@ -7,19 +7,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Filmlane - Best movie collections</title>
 
-  <!-- 
-    - favicon
-  -->
-  <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="shortcut icon" href="./image/baofilm.png" type="image/svg+xml">
 
-  <!-- 
-    - custom css link
-  -->
   <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./css/prenium.css">
 
-  <!-- 
-    - google font link
-  -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -27,13 +19,8 @@
 
 <body id="top">
 
-  <!-- 
-    - #HEADER
-  -->
-
   <header class="header" data-header>
     <div class="container">
-
       <div class="overlay" data-overlay></div>
 
       <a href="./index.html" class="logo">
@@ -58,18 +45,6 @@
             <option value="tu">TU</option>
           </select>
         </div>
-
-          <button class="btn btn-primary auth-hidden" id="btnLogin">Sign in</button>
-
-            <div id="userBox" class="user-box auth-hidden">
-              <img id="userAvatar" src="">
-              <span id="userName">User</span>
-
-              <div id="userDropdown" class="user-dropdown">
-                <a href="profile.html">Thông tin tài khoản</a>
-                <button id="btnLogout">Đăng xuất</button>
-              </div>
-            </div>
       </div>
 
       <button class="menu-open-btn" data-menu-open-btn>
@@ -92,26 +67,47 @@
 
         <ul class="navbar-list">
 
+
           <li>
             <a href="./index.html" class="navbar-link">Home</a>
           </li>
 
           <li>
-            <a href="#" class="navbar-link">Movie</a>
+            <a href="#upcoming" class="navbar-link">Upcoming</a>
           </li>
 
           <li>
-            <a href="#" class="navbar-link">Tv Show</a>
+            <a href="#service" class="navbar-link">Download</a>
           </li>
 
           <li>
-            <a href="#" class="navbar-link">Web Series</a>
+            <a href="#movie" class="navbar-link">Movie</a>
           </li>
 
           <li>
-            <a href="#" class="navbar-link">Pricing</a>
+            <a href="#" class="navbar-link" id="pricingLink">Pricing</a>
           </li>
 
+          <li class="navbar-auth auth-hidden" id="navbarSignIn">
+            <button class="btn btn-primary navbar-signin-btn" id="navbarBtnLogin">
+              <ion-icon name="log-in-outline"></ion-icon>
+              <span>Sign In</span>
+            </button>
+          </li>
+
+          <!-- User Box trong navbar -->
+          <li class="navbar-auth auth-hidden" id="navbarUserBox">
+            <div class="navbar-user-info">
+              <a href="profile.html" class="navbar-user-link">
+                <img id="navbarUserAvatar" src="./image/bguser.jfif" alt="User Avatar" class="navbar-user-avatar">
+                <span id="navbarUserName">User</span>
+              </a>
+              <button class="navbar-logout-btn" id="navbarBtnLogout">
+                <ion-icon name="log-out-outline"></ion-icon>
+                <span>Logout</span>
+              </button>
+            </div>
+          </li>
         </ul>
 
         <ul class="navbar-social-list">
@@ -154,15 +150,8 @@
   </header>
 
 
-
-
-
   <main>
     <article>
-
-      <!-- 
-        - #HERO
-      -->
 
       <section class="hero">
         <div class="container">
@@ -219,14 +208,7 @@
       </section>
 
 
-
-
-
-      <!-- 
-        - #UPCOMING
-      -->
-
-      <section class="upcoming">
+      <section class="upcoming" id="upcoming">
         <div class="container">
 
           <div class="flex-wrapper">
@@ -260,18 +242,18 @@
             <li>
               <div class="movie-card">
 
-                <a href="./movie-details/happy-guy4.html">
+                <a href="./movie-details/the-north-man.html">
                   <figure class="card-banner">
                     <img src="./image/upcoming-1.png" alt="The Northman movie poster">
                   </figure>
                 </a>
 
                 <div class="title-wrapper">
-                  <a href="./movie-details.html">
+                  <a href="./movie-details/the-north-man.html">
                     <h3 class="card-title">The Northman</h3>
                   </a>
 
-                  <time datetime="2022">2022</time>
+                  <time datetime="2024">2024</time>
                 </div>
 
                 <div class="card-meta">
@@ -296,7 +278,7 @@
             <li>
               <div class="movie-card">
 
-                <a href="./movie-details.html">
+                <a href="./movie-details/Doctor-strange.html">
                   <figure class="card-banner">
                     <img src="./image/upcoming-2.png"
                       alt="Doctor Strange in the Multiverse of Madness movie poster">
@@ -304,11 +286,11 @@
                 </a>
 
                 <div class="title-wrapper">
-                  <a href="./movie-details.html">
+                  <a href="./movie-details/Doctor-strange.html">
                     <h3 class="card-title">Doctor Strange in the Multiverse of Madness</h3>
                   </a>
 
-                  <time datetime="2022">2022</time>
+                  <time datetime="2026">2026</time>
                 </div>
 
                 <div class="card-meta">
@@ -333,14 +315,14 @@
             <li>
               <div class="movie-card">
 
-                <a href="./movie-details.html">
+                <a href="./movie-details/movie-details.html">
                   <figure class="card-banner">
                     <img src="./image/upcoming-3.png" alt="Memory movie poster">
                   </figure>
                 </a>
 
                 <div class="title-wrapper">
-                  <a href="./movie-details.html">
+                  <a href="./movie-details/movie-details.html">
                     <h3 class="card-title">Memory</h3>
                   </a>
 
@@ -369,7 +351,7 @@
             <li>
               <div class="movie-card">
 
-                <a href="./movie-details.html">
+                <a href="./movie-details/movie-details.html">
                   <figure class="card-banner">
                     <img src="./image/upcoming-4.png"
                       alt="The Unbearable Weight of Massive Talent movie poster">
@@ -377,7 +359,7 @@
                 </a>
 
                 <div class="title-wrapper">
-                  <a href="./movie-details.html">
+                  <a href="./movie-details/movie-details.html">
                     <h3 class="card-title">The Unbearable Weight of Massive Talent</h3>
                   </a>
 
@@ -409,14 +391,7 @@
       </section>
 
 
-
-
-
-      <!-- 
-        - #SERVICE
-      -->
-
-      <section class="service">
+      <section class="service" id="service">
         <div class="container">
 
           <div class="service-banner">
@@ -438,9 +413,9 @@
             <h2 class="h2 service-title">Download Your Shows Watch Offline.</h2>
 
             <p class="service-text">
-              Lorem ipsum dolor sit amet, consecetur adipiscing elseddo eiusmod tempor.There are many variations of
-              passages of lorem
-              Ipsum available, but the majority have suffered alteration in some injected humour.
+              "Chúng tôi cam kết mang đến những giải pháp tối ưu nhằm nâng cao hiệu quả vận hành và tối đa hóa lợi nhuận cho doanh nghiệp. 
+              Với đội ngũ chuyên gia giàu kinh nghiệm, 
+              chúng tôi luôn đồng hành cùng khách hàng trong mọi bước đường phát triển bền vững."
             </p>
 
             <ul class="service-list">
@@ -456,7 +431,9 @@
                     <h3 class="h3 card-title">Enjoy on Your TV.</h3>
 
                     <p class="card-text">
-                      Lorem ipsum dolor sit amet, consecetur adipiscing elit, sed do eiusmod tempor.
+                      "Chào mừng bạn đến với nội dung mẫu. 
+                      Đây là văn bản giả được sử dụng để hiển thị bố cục, 
+                      định dạng font chữ và kiểm tra thiết kế trước khi thay thế bằng nội dung chính thức."
                     </p>
                   </div>
 
@@ -474,7 +451,7 @@
                     <h3 class="h3 card-title">Watch Everywhere.</h3>
 
                     <p class="card-text">
-                      Lorem ipsum dolor sit amet, consecetur adipiscing elit, sed do eiusmod tempor.
+                      Xem film ở mọi nơi, mọi lúc, kể cả khi đang ngồi trong nhà tắm.
                     </p>
                   </div>
 
@@ -488,15 +465,8 @@
         </div>
       </section>
 
-
-
-
-
-      <!-- 
-        - #TOP RATED
-      -->
-
-      <section class="top-rated">
+      
+      <section class="top-rated" id="movie">
         <div class="container">
 
           <p class="section-subtitle">Online Streaming</p>
@@ -528,14 +498,14 @@
             <li>
               <div class="movie-card">
 
-                <a href="./movie-details.html">
+                <a href="./movie-details/movie-details.html">
                   <figure class="card-banner">
                     <img src="./image/movie-1.png" alt="Sonic the Hedgehog 2 movie poster">
                   </figure>
                 </a>
 
                 <div class="title-wrapper">
-                  <a href="./movie-details.html">
+                  <a href="./movie-details/movie-details.html">
                     <h3 class="card-title">Sonic the Hedgehog 2</h3>
                   </a>
 
@@ -564,14 +534,14 @@
             <li>
               <div class="movie-card">
 
-                <a href="./movie-details.html">
+                <a href="./movie-details/movie-details.html">
                   <figure class="card-banner">
                     <img src="./image/movie-2.png" alt="Morbius movie poster">
                   </figure>
                 </a>
 
                 <div class="title-wrapper">
-                  <a href="./movie-details.html">
+                  <a href="./movie-details/movie-details.html">
                     <h3 class="card-title">Morbius</h3>
                   </a>
 
@@ -600,14 +570,14 @@
             <li>
               <div class="movie-card">
 
-                <a href="./movie-details.html">
+                <a href="./movie-details/movie-details.html">
                   <figure class="card-banner">
                     <img src="./image/movie-3.png" alt="The Adam Project movie poster">
                   </figure>
                 </a>
 
                 <div class="title-wrapper">
-                  <a href="./movie-details.html">
+                  <a href="./movie-details/movie-details.html">
                     <h3 class="card-title">The Adam Project</h3>
                   </a>
 
@@ -636,14 +606,14 @@
             <li>
               <div class="movie-card">
 
-                <a href="./movie-details.html">
+                <a href="./movie-details/happy-guy4.html">
                   <figure class="card-banner">
                     <img src="./image/movie-4.png" alt="Free Guy movie poster">
                   </figure>
                 </a>
 
                 <div class="title-wrapper">
-                  <a href="./movie-details.html">
+                  <a href="./movie-details/happy-guy4.html">
                     <h3 class="card-title">Free Guy</h3>
                   </a>
 
@@ -672,14 +642,14 @@
             <li>
               <div class="movie-card">
 
-                <a href="./movie-details.html">
+                <a href="./movie-details/movie-details.html">
                   <figure class="card-banner">
                     <img src="./image/movie-5.png" alt="The Batman movie poster">
                   </figure>
                 </a>
 
                 <div class="title-wrapper">
-                  <a href="./movie-details.html">
+                  <a href="./movie-details/movie-details.html">
                     <h3 class="card-title">The Batman</h3>
                   </a>
 
@@ -708,14 +678,14 @@
             <li>
               <div class="movie-card">
 
-                <a href="./movie-details.html">
+                <a href="./movie-details/movie-details.html">
                   <figure class="card-banner">
                     <img src="./image/movie-6.png" alt="Uncharted movie poster">
                   </figure>
                 </a>
 
                 <div class="title-wrapper">
-                  <a href="./movie-details.html">
+                  <a href="./movie-details/movie-details.html">
                     <h3 class="card-title">Uncharted</h3>
                   </a>
 
@@ -744,14 +714,14 @@
             <li>
               <div class="movie-card">
 
-                <a href="./movie-details.html">
+                <a href="./movie-details/movie-details.html">
                   <figure class="card-banner">
                     <img src="./image/movie-7.png" alt="Death on the Nile movie poster">
                   </figure>
                 </a>
 
                 <div class="title-wrapper">
-                  <a href="./movie-details.html">
+                  <a href="./movie-details/movie-details.html">
                     <h3 class="card-title">Death on the Nile</h3>
                   </a>
 
@@ -780,14 +750,14 @@
             <li>
               <div class="movie-card">
 
-                <a href="./movie-details.html">
+                <a href="./movie-details/movie-details.html">
                   <figure class="card-banner">
                     <img src="./image/movie-8.png" alt="The King's Man movie poster">
                   </figure>
                 </a>
 
                 <div class="title-wrapper">
-                  <a href="./movie-details.html">
+                  <a href="./movie-details/movie-details.html">
                     <h3 class="card-title">The King's Man</h3>
                   </a>
 
@@ -819,13 +789,6 @@
       </section>
 
 
-
-
-
-      <!-- 
-        - #TV SERIES
-      -->
-
       <section class="tv-series">
         <div class="container">
 
@@ -838,14 +801,14 @@
             <li>
               <div class="movie-card">
 
-                <a href="./movie-details.html">
+                <a href="./movie-details/movie-details.html">
                   <figure class="card-banner">
                     <img src="./image/series-1.png" alt="Moon Knight movie poster">
                   </figure>
                 </a>
 
                 <div class="title-wrapper">
-                  <a href="./movie-details.html">
+                  <a href="./movie-details/movie-details.html">
                     <h3 class="card-title">Moon Knight</h3>
                   </a>
 
@@ -874,14 +837,14 @@
             <li>
               <div class="movie-card">
 
-                <a href="./movie-details.html">
+                <a href="./movie-details/movie-details.html">
                   <figure class="card-banner">
                     <img src="./image/series-2.png" alt="Halo movie poster">
                   </figure>
                 </a>
 
                 <div class="title-wrapper">
-                  <a href="./movie-details.html">
+                  <a href="./movie-details/movie-details.html">
                     <h3 class="card-title">Halo</h3>
                   </a>
 
@@ -910,14 +873,14 @@
             <li>
               <div class="movie-card">
 
-                <a href="./movie-details.html">
+                <a href="./movie-details/movie-details.html">
                   <figure class="card-banner">
                     <img src="./image/series-3.png" alt="Vikings: Valhalla movie poster">
                   </figure>
                 </a>
 
                 <div class="title-wrapper">
-                  <a href="./movie-details.html">
+                  <a href="./movie-details/movie-details.html">
                     <h3 class="card-title">Vikings: Valhalla</h3>
                   </a>
 
@@ -946,14 +909,14 @@
             <li>
               <div class="movie-card">
 
-                <a href="./movie-details.html">
+                <a href="./movie-details/movie-details.html">
                   <figure class="card-banner">
                     <img src="./image/series-4.png" alt="Money Heist movie poster">
                   </figure>
                 </a>
 
                 <div class="title-wrapper">
-                  <a href="./movie-details.html">
+                  <a href="./movie-details/movie-details.html">
                     <h3 class="card-title">Money Heist</h3>
                   </a>
 
@@ -984,14 +947,6 @@
         </div>
       </section>
 
-
-
-
-
-      <!-- 
-        - #CTA
-      -->
-
       <section class="cta">
         <div class="container">
 
@@ -1015,13 +970,6 @@
     </article>
   </main>
 
-
-
-
-
-  <!-- 
-    - #FOOTER
-  -->
 
   <footer class="footer">
 
@@ -1121,7 +1069,7 @@
       <div class="container">
 
         <p class="copyright">
-          &copy; 2022 <a href="#">codewithsadee</a>. All Rights Reserved
+          &copy; 2025 <a href="#">CodeWithComboMaidcon</a>. All Rights Reserved
         </p>
 
         <img src="./image/footer-bottom-img.png" alt="Online banking companies logo" class="footer-bottom-img">
@@ -1132,31 +1080,52 @@
   </footer>
 
 
+  <div class="premium-modal" id="premiumModal">
+    <div class="modal-content">
+      <button class="close-modal" id="closeModal">&times;</button>
+        
+      <p class="section-subtitle">BaoFilm Plans</p>
+      <h2 class="h2">Upgrade to Premium</h2>
+
+      <div class="modal-pricing-grid">
+        <div class="modal-card">
+          <div class="best-value" style="color: aquamarine;">Current use</div>
+          <h3 class="h3">Basic</h3>
+          <p class="modal-price" >Free</p>
+          <ul>
+            <li><ion-icon name="checkmark-circle"></ion-icon> Ads included</li>
+            <li><ion-icon name="checkmark-circle"></ion-icon> 720p Quality</li>
+          </ul>
+          <button class="btn-modal-disabled" disabled>Current</button>
+        </div>
+        
+        <div class="modal-card active">
+          <div class="best-value">Best Value</div>
+          <h3 class="h3">Premium</h3>
+          <p class="modal-price">$9.99<span>/month</span></p>
+          <ul>
+            <li><ion-icon name="flash"></ion-icon> No Ads</li>
+            <li><ion-icon name="flash"></ion-icon> 4K + HDR</li>
+            <li><ion-icon name="flash"></ion-icon> Offline Download</li>
+          </ul>
+          <button class="btn btn-primary btn-buy" data-plan="Premium">Get Started</button>
+        </div>
+        </div>
+      </div>
+    </div>
 
 
-
-  <!-- 
-    - #GO TO TOP
-  -->
 
   <a href="#top" class="go-top" data-go-top>
     <ion-icon name="chevron-up"></ion-icon>
   </a>
 
 
-
-
-
-  <!-- 
-    - custom js link
-  -->
   <script src="./js/active.js"></script>
   <script type="module" src="./js/Load.js" ></script>
   <script type="module" src="./js/firebase.js" ></script>
 
-  <!-- 
-    - ionicon link
-  -->
+
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 

@@ -145,5 +145,47 @@ a{
 }
 
 
+/* --- RESPONESIVE --- */
+@media screen and (max-width: 600px) {
+    .main {
+        width: 90% !important;
+        height: auto !important;
+        min-height: 500px !important;
+        margin: 20px auto !important;
+    }
 
+
+    .brand img {
+        width: 150px !important;
+        margin-top: 10px !important;
+    }
+
+
+    input {
+        width: 85% !important;
+        height: 35px !important;
+        margin: 6px auto !important;
+    }
+
+
+    .button {
+        width: 80% !important;
+        margin-top: 15px !important;
+    }
+
+
+    .singup {
+        height: 550px !important;
+        transform: translateY(320px) !important;
+    }
+
+    #chk:checked ~ .singup {
+        transform: translateY(-250px) !important;
+    }
+
+    #chk:checked ~ .singup label {
+        transform: scale(0.9) !important;
+        margin: 10px auto !important;
+    }
+}
 

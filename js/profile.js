@@ -6,8 +6,6 @@ import { getFirestore, doc, getDoc }
 from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 import { showToast } from './toast.js';
 
-
-/* ===== Firebase config (GIỐNG firebase.js) ===== */
 const firebaseConfig = {
   apiKey: "AIzaSyB9EPdiS8l9pufvZYrW1L-EXE3xCygPUO0",
   authDomain: "bao-film.firebaseapp.com",
@@ -22,13 +20,13 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
 
-/* ===== ELEMENT ===== */
+/* ELEMENT*/
 const userName = document.getElementById("userName");
 const userAvatar = document.getElementById("userAvatar");
 const profilePhoneNumber = document.getElementById('profilePhoneNumber');
 const userJoinedDate = document.getElementById('userJoinedDate');
 
-/* ===== AUTH STATE ===== */
+/*AUTH STATE*/
 onAuthStateChanged(auth, async (user) => {
     if (user) {
         let name = user.email;
@@ -63,7 +61,7 @@ onAuthStateChanged(auth, async (user) => {
         
         const tokenResult = await user.getIdTokenResult();
         
-        // authTime là thời điểm người dùng xác thực (đăng nhập)
+        //thời điểm người dùng xác thực (đăng nhập)
         const authTime = tokenResult.authTime; 
         
         const date = new Date(authTime);
@@ -83,19 +81,18 @@ const profileActions = document.getElementById("profileActions");
 
 if (btnEdit) {
     btnEdit.addEventListener("click", (e) => {
-        e.preventDefault(); // Ngăn chặn hành vi reload mặc định
-
+        e.preventDefault();
         const spanName = document.getElementById("profileUserName");
         const spanPhone = document.getElementById("profilePhoneNumber");
 
         const oldName = spanName.innerText;
         const oldPhone = spanPhone.innerText;
 
-        // 1. Chuyển thành ô Input (Dùng class edit-input để style)
+        // Chuyển thành ô Input
         spanName.innerHTML = `<input type="text" id="inputName" class="edit-input" value="${oldName}">`;
         spanPhone.innerHTML = `<input type="text" id="inputPhone" class="edit-input" value="${oldPhone}">`;
 
-        // 2. Thay đổi nút Edit thành nhóm nút Save/Cancel trải ngang
+        //Thay đổi nút Edit thành nhóm nút Save/Cancel trải ngang
         profileActions.innerHTML = `
             <div class="edit-btn-horizontal-group">
                 <button class="btn btn-primary" id="btnSaveData">SAVE</button>

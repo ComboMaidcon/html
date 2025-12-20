@@ -1,17 +1,16 @@
-/* Container cho nút Save duy nhất */
+
 .save-container {
     width: 100% !important;
     display: flex !important;
     justify-content: center !important;
     margin-top: 15px !important;
 }
-
-/* Nút SAVE mới - To và đậm chất BaoFilm */
+ilm */
 .btn-save {
     background: var(--citrine) !important;
     color: var(--rich-black-fogra-29) !important;
     border: none !important;
-    padding: 14px 50px !important; /* To hơn để dễ bấm */
+    padding: 14px 50px !important;
     border-radius: 50px !important;
     font-weight: 700 !important;
     letter-spacing: 2px !important;
@@ -26,7 +25,6 @@
     box-shadow: 0 6px 20px rgba(229, 184, 11, 0.5) !important;
 }
 
-/* Giữ style cho ô input ổn định */
 .edit-input {
     background: rgba(255, 255, 255, 0.1) !important;
     border: 1px solid var(--citrine) !important;
@@ -38,7 +36,6 @@
     outline: none !important;
 }
 
-/* Reset lại khung action */
 .details-actions {
     max-width: none !important;
     width: 100% !important;
@@ -46,45 +43,139 @@
     align-items: center !important;
 }
 
-#toast-container {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    z-index: 9999;
+
+.movie-detail-content .meta-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin: 25px 0;
 }
 
-.toast {
-    position: relative;
-    min-width: 280px;
-    padding: 14px 18px;
-    border-radius: 12px;
-    background: #000;
-    color: #fff;
-    font-size: 15px;
-
-    box-shadow: 0 10px 30px rgba(0,0,0,.4);
-    overflow: hidden;
-
-    animation: slideIn .4s ease;
+.badge-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
 }
 
-/* Viền chạy */
-.toast::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    border-radius: 12px;
-    padding: 2px;
-    background: linear-gradient(
-        90deg,
-        #00ffcc,
-        #00ffcc
-    );
-    -webkit-mask:
-        linear-gradient(#000 0 0) content-box,
-        linear-gradient(#000 0 0);
-    -webkit-mask-composite: xor;
-            mask-composite: exclude;
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 16px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
 
-    animation: borderProgress 1s linear forwards;
+.badge-outline {
+  border: 2px solid var(--white);
+  color: var(--white);
+  background: transparent;
+}
+
+.badge-fill {
+  background: var(--citrine);
+  color: var(--eerie-black-1);
+  border: 2px solid var(--citrine);
+}
+
+@media screen and (max-width: 768px) {
+  .movie-detail-content .meta-wrapper {
+    gap: 15px;
+    margin: 20px 0;
+  }
+
+  .badge-wrapper {
+    gap: 10px;
+  }
+
+  .badge {
+    padding: 5px 14px;
+    font-size: 13px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .movie-detail-content .meta-wrapper {
+    flex-direction: column;
+    gap: 12px;
+    margin: 18px 0;
+  }
+
+  .badge-wrapper {
+    gap: 8px;
+    width: 100%;
+  }
+
+  .badge {
+    padding: 5px 12px;
+    font-size: 12px;
+    flex: 0 0 auto;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .badge-wrapper {
+    gap: 6px;
+  }
+
+  .badge {
+    padding: 4px 10px;
+    font-size: 11px;
+  }
+}
+
+.badge {
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.badge-outline:hover {
+  background: var(--white);
+  color: var(--eerie-black-1);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.3);
+}
+
+.badge-fill:hover {
+  background: var(--white);
+  border-color: var(--white);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(229, 184, 11, 0.4);
+}
+
+.badge-fill {
+  position: relative;
+  overflow: hidden;
+}
+
+.badge-fill::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+  transform: rotate(45deg);
+  animation: shine 3s infinite;
+}
+
+@keyframes shine {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
 }
